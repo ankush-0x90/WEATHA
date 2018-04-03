@@ -1,6 +1,6 @@
 // @flow
-
 import React, {Component} from 'react';
+
 import {
   FlatList,
   StatusBar,
@@ -10,6 +10,7 @@ import {
   View,
 } from 'react-native';
 
+
 import {ActionButton, COLOR, ThemeProvider} from 'react-native-material-ui';
 import {Icon} from 'react-native-elements';
 import * as css from './Styles';
@@ -18,35 +19,8 @@ import {connect} from 'react-redux';
 import * as actions from './state/Actions';
 import {store} from './state/Context';
 
-//
-// NOTE - if you don't use @connect ...
-//
-//   /*
-//    * mapStateToProps & mapDispatchToProps more info:
-//    * http://www.sohamkamani.com/blog/2017/03/31/react-redux-connect-explained/
-//    * https://goo.gl/VNQAOZ
-//    */
-//   const mapStateToProps = (state) => {
-//     return {app: state.app};
-//   };
-//
-//   const mapDispatchToProps = (dispatch) => {
-//     return bindActionCreators(actions, dispatch);
-//   };
-//
-//   // exports HomeScreen as the connected component
-//   // more info - http://redux.js.org/docs/basics/UsageWithReact.html
-//   export const ConnectedHomeScreen =
-//                  connect(mapStateToProps, mapDispatchToProps)
-//                  (HomeScreen);
-//
 
-/**
- * This React component is bound to the Redux store. Redux Provider saves the redux store
- * in the Component.Context, which is then available to any React Component that is
- * wired up to Redux using @connect.
- */
-
+//redux function REDUX || REDUX || 
 @connect(
   (state) => {
     return {app: state.app};
@@ -79,9 +53,7 @@ export class HomeScreen extends Component {
             <Text style={css.home_screen_list.row_cell_temp}>{temp}</Text>
           </View>;
   
-    // fixed animation bug that didn't allow ripples to be drawn on UI component
-    // https://johnresig.com/blog/how-javascript-timers-work/
-    // https://developer.mozilla.org/en-US/Add-ons/Code_snippets/Timers
+    
     let pressed = () => {
       setTimeout(() => {
         this._navigation.navigate('DetailsRoute', {...item});
@@ -104,20 +76,23 @@ export class HomeScreen extends Component {
             {actualRowComponent}
           </TouchableNativeFeedback>;
   
-    if (require('react-native').Platform.OS === 'ios') {
-      return touchableWrapperIos;
-    }
-    else {
+    //wrapped by asprazz for android only 
+    //if (require('react-native').Platform.OS === 'ios') {
+      //return touchableWrapperIos;
+    //}
+    //else {
       return touchableWrapperAndroid;
-    }
-  
+    //}
+
   };
+  
   
   /**
    * Set up the landing screen of the app. This component uses
    * react-native-material-ui and it sets up a theme object for this library that is
    * passed at the root using a ThemeProvider.
    */
+  
   render() {
   
     const {app} = this.props;
@@ -131,27 +106,16 @@ export class HomeScreen extends Component {
       },
     };
   
-    // DEBUG-START
-    // let debugMsg;
-    // try {
-    //   debugMsg = `#Reports ${app.reports.length}`;
-    //   console.log(":: HomeScreen.render ::");
-    //   // console.log(JSON.stringify(app.reports, null, '\t'));
-    //   console.log(app);
-    // }
-    // catch (e) {
-    //   debugMsg = 'No data set in state';
-    // }
-    // DEBUG-END
-  
   
     return (
+      
       <ThemeProvider uiTheme={uiTheme}>
         <View style={css.home_screen.v_container}>
+         
           <StatusBar
             hidden={false}
             translucent={false}
-            animated={true}
+            animated={false}
             barStyle={'light-content'}
             backgroundColor={css.colors.secondary}
           />
@@ -209,12 +173,9 @@ export class HomeScreen extends Component {
     
     }
     else if (path === 2) {
-    
       // Interact with the cloud to get fake weather data into the app ... instead of
       // directly setting weather data (as done above)
-    
-    }
-    
+
+    } 
   }
-  
-}// end class HomeScreen
+}

@@ -7,7 +7,7 @@ import * as css from './Styles';
 export class SettingsScreen extends Component {
   
   static navigationOptions = {
-    title: `App Settings`,
+    title: `About US`,
   };
   
   constructor(props) {
@@ -15,7 +15,7 @@ export class SettingsScreen extends Component {
   }
   
   render() {
-    const msg1 = `Settings`;
+    const msg1 = `Designed And Developed By`;
     
     return (
       <View style={css.settings_screen.v_container}>
@@ -28,9 +28,7 @@ export class SettingsScreen extends Component {
         />
         
         <Text style={css.settings_screen.text}>{msg1}</Text>
-        <View style={css.settings_screen.about_us_view}>
-          <Text stle={css.settings_screen.about_us_text}>Designed And Developed By Asprazz And Team </Text>
-        </View>
+        <Text stle={css.settings_screen.about_us_text}>Asprazz And Team </Text>
       </View>
     );
   }

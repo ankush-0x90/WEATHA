@@ -10,7 +10,7 @@ export const listData = [
       iconFont : 'ionicon',
       iconColor: '#FFCF17',
     },
-    currentTemp   : '40',
+    currentTemp   : '45',
     description   : 'Sunny',
     dailyForecast : [
       {
@@ -183,7 +183,7 @@ export const listData = [
     weeklyForecast: [
       {
         key : '1',
-        day : 'TUE',
+        day : 'MON',
         temp: '62',
         icon: {
           iconName : 'ios-sunny-outline',
