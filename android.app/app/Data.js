@@ -10,8 +10,8 @@ export const listData = [
       iconFont : 'ionicon',
       iconColor: '#FFCF17',
     },
-    currentTemp   : '45',
-    description   : 'Sunny',
+    currentTemp   : '##',
+    description   : '##',
     dailyForecast : [
       {
         key : '1',
@@ -21,7 +21,7 @@ export const listData = [
           iconFont : 'ionicon',
           iconColor: '#464646',
         },
-        temp: '39',
+        temp: '##',
       },
       {
         key : '2',
@@ -31,7 +31,7 @@ export const listData = [
           iconFont : 'ionicon',
           iconColor: '#464646',
         },
-        temp: '37',
+        temp: '##',
       },
       {
         key : '3',
@@ -41,7 +41,7 @@ export const listData = [
           iconFont : 'ionicon',
           iconColor: '#464646',
         },
-        temp: '57',
+        temp: '##',
       },
       {
         key : '4',
@@ -51,7 +51,7 @@ export const listData = [
           iconFont : 'ionicon',
           iconColor: '#464646',
         },
-        temp: '34',
+        temp: '##',
       },
       {
         key : '5',
@@ -71,7 +71,7 @@ export const listData = [
           iconFont : 'ionicon',
           iconColor: '#464646',
         },
-        temp: '30',
+        temp: '##',
       },
       {
         key : '7',
@@ -81,14 +81,14 @@ export const listData = [
           iconFont : 'ionicon',
           iconColor: '#464646',
         },
-        temp: '29',
+        temp: '##',
       },
     ],
     weeklyForecast: [
       {
         key : '1',
         day : 'TUE',
-        temp: '35',
+        temp: '##',
         icon: {
           iconName : 'ios-sunny-outline',
           iconFont : 'ionicon',
@@ -98,7 +98,7 @@ export const listData = [
       {
         key : '2',
         day : 'WED',
-        temp: '35',
+        temp: '##',
         icon: {
           iconName : 'ios-partly-sunny-outline',
           iconFont : 'ionicon',
@@ -108,7 +108,7 @@ export const listData = [
       {
         key : '3',
         day : 'THU',
-        temp: '35',
+        temp: '##',
         icon: {
           iconName : 'ios-partly-sunny-outline',
           iconFont : 'ionicon',
@@ -118,7 +118,7 @@ export const listData = [
       {
         key : '4',
         day : 'FRI',
-        temp: '40',
+        temp: '##',
         icon: {
           iconName : 'ios-sunny-outline',
           iconFont : 'ionicon',
@@ -128,7 +128,7 @@ export const listData = [
       {
         key : '5',
         day : 'SAT',
-        temp: '42',
+        temp: '##',
         icon: {
           iconName : 'ios-partly-sunny-outline',
           iconFont : 'ionicon',
@@ -146,7 +146,7 @@ export const listData = [
       iconFont : 'ionicon',
       iconColor: '#FFCF17',
     },
-    currentTemp   : '30',
+    currentTemp   : '##',
     description   : 'Sunny',
     dailyForecast : [
       {
@@ -157,7 +157,7 @@ export const listData = [
           iconFont : 'ionicon',
           iconColor: '#FFCF17',
         },
-        temp: '37',
+        temp: '##',
       },
       {
         key : '2',
@@ -167,7 +167,7 @@ export const listData = [
           iconFont : 'ionicon',
           iconColor: '#FFCF17',
         },
-        temp: '30',
+        temp: '##',
       },
       {
         key : '3',
@@ -177,14 +177,14 @@ export const listData = [
           iconFont : 'ionicon',
           iconColor: '#FFCF17',
         },
-        temp: '60',
+        temp: '##',
       },
     ],
     weeklyForecast: [
       {
         key : '1',
         day : 'MON',
-        temp: '62',
+        temp: '##',
         icon: {
           iconName : 'ios-sunny-outline',
           iconFont : 'ionicon',
@@ -194,7 +194,7 @@ export const listData = [
       {
         key : '2',
         day : 'WED',
-        temp: '68',
+        temp: '##',
         icon: {
           iconName : 'ios-partly-sunny-outline',
           iconFont : 'ionicon',
@@ -204,7 +204,7 @@ export const listData = [
       {
         key : '3',
         day : 'THU',
-        temp: '57',
+        temp: '##',
         icon: {
           iconName : 'ios-partly-sunny-outline',
           iconFont : 'ionicon',
@@ -214,7 +214,7 @@ export const listData = [
       {
         key : '4',
         day : 'FRI',
-        temp: '73',
+        temp: '##',
         icon: {
           iconName : 'ios-sunny-outline',
           iconFont : 'ionicon',
@@ -224,7 +224,7 @@ export const listData = [
       {
         key : '5',
         day : 'SAT',
-        temp: '70',
+        temp: '##',
         icon: {
           iconName : 'ios-partly-sunny-outline',
           iconFont : 'ionicon',
