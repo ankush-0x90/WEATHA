@@ -1,0 +1,149 @@
+{
+ "query": {
+  "count": 1,
+  "created": "2018-04-05T04:39:06Z",
+  "lang": "en-US",
+  "results": {
+   "channel": {
+    "units": {
+     "distance": "mi",
+     "pressure": "in",
+     "speed": "mph",
+     "temperature": "F"
+    },
+    "title": "Yahoo! Weather - Nome, AK, US",
+    "link": "http://us.rd.yahoo.com/dailynews/rss/weather/Country__Country/*https://weather.yahoo.com/country/state/city-2460286/",
+    "description": "Yahoo! Weather for Nome, AK, US",
+    "language": "en-us",
+    "lastBuildDate": "Wed, 04 Apr 2018 08:39 PM AKDT",
+    "ttl": "60",
+    "location": {
+     "city": "Nome",
+     "country": "United States",
+     "region": " AK"
+    },
+    "wind": {
+     "chill": "1",
+     "direction": "45",
+     "speed": "22"
+    },
+    "atmosphere": {
+     "humidity": "61",
+     "pressure": "1015.0",
+     "rising": "0",
+     "visibility": "16.1"
+    },
+    "astronomy": {
+     "sunrise": "8:8 am",
+     "sunset": "10:3 pm"
+    },
+    "image": {
+     "title": "Yahoo! Weather",
+     "width": "142",
+     "height": "18",
+     "link": "http://weather.yahoo.com",
+     "url": "http://l.yimg.com/a/i/brand/purplelogo//uh/us/news-wea.gif"
+    },
+    "item": {
+     "title": "Conditions for Nome, AK, US at 08:00 PM AKDT",
+     "lat": "64.499474",
+     "long": "-165.405792",
+     "link": "http://us.rd.yahoo.com/dailynews/rss/weather/Country__Country/*https://weather.yahoo.com/country/state/city-2460286/",
+     "pubDate": "Wed, 04 Apr 2018 08:00 PM AKDT",
+     "condition": {
+      "code": "32",
+      "date": "Wed, 04 Apr 2018 08:00 PM AKDT",
+      "temp": "16",
+      "text": "Sunny"
+     },
+     "forecast": [
+      {
+       "code": "32",
+       "date": "04 Apr 2018",
+       "day": "Wed",
+       "high": "18",
+       "low": "11",
+       "text": "Sunny"
+      },
+      {
+       "code": "34",
+       "date": "05 Apr 2018",
+       "day": "Thu",
+       "high": "19",
+       "low": "10",
+       "text": "Mostly Sunny"
+      },
+      {
+       "code": "28",
+       "date": "06 Apr 2018",
+       "day": "Fri",
+       "high": "23",
+       "low": "15",
+       "text": "Mostly Cloudy"
+      },
+      {
+       "code": "30",
+       "date": "07 Apr 2018",
+       "day": "Sat",
+       "high": "26",
+       "low": "15",
+       "text": "Partly Cloudy"
+      },
+      {
+       "code": "34",
+       "date": "08 Apr 2018",
+       "day": "Sun",
+       "high": "28",
+       "low": "17",
+       "text": "Mostly Sunny"
+      },
+      {
+       "code": "30",
+       "date": "09 Apr 2018",
+       "day": "Mon",
+       "high": "29",
+       "low": "16",
+       "text": "Partly Cloudy"
+      },
+      {
+       "code": "32",
+       "date": "10 Apr 2018",
+       "day": "Tue",
+       "high": "36",
+       "low": "22",
+       "text": "Sunny"
+      },
+      {
+       "code": "32",
+       "date": "11 Apr 2018",
+       "day": "Wed",
+       "high": "32",
+       "low": "21",
+       "text": "Sunny"
+      },
+      {
+       "code": "32",
+       "date": "12 Apr 2018",
+       "day": "Thu",
+       "high": "29",
+       "low": "19",
+       "text": "Sunny"
+      },
+      {
+       "code": "32",
+       "date": "13 Apr 2018",
+       "day": "Fri",
+       "high": "22",
+       "low": "13",
+       "text": "Sunny"
+      }
+     ],
+     "description": "<![CDATA[<img src=\"http://l.yimg.com/a/i/us/we/52/32.gif\"/>\n<BR />\n<b>Current Conditions:</b>\n<BR />Sunny\n<BR />\n<BR />\n<b>Forecast:</b>\n<BR /> Wed - Sunny. High: 18Low: 11\n<BR /> Thu - Mostly Sunny. High: 19Low: 10\n<BR /> Fri - Mostly Cloudy. High: 23Low: 15\n<BR /> Sat - Partly Cloudy. High: 26Low: 15\n<BR /> Sun - Mostly Sunny. High: 28Low: 17\n<BR />\n<BR />\n<a href=\"http://us.rd.yahoo.com/dailynews/rss/weather/Country__Country/*https://weather.yahoo.com/country/state/city-2460286/\">Full Forecast at Yahoo! Weather</a>\n<BR />\n<BR />\n<BR />\n]]>",
+     "guid": {
+      "isPermaLink": "false"
+     }
+    }
+   }
+  }
+ }
+}

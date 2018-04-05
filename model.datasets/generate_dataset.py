@@ -16,7 +16,7 @@ import datetime
 from pprint import pprint
 
 # Number of days to query API for, up to and including yesterday
-DAYS = 1800
+DAYS = 2
 
 # Places to query the API for
 places = ['India/Jalgaon']
@@ -45,7 +45,7 @@ fh.setFormatter(formatter)
 ch.setFormatter(formatter)
 
 # Read API key from environment
-API_KEY = "ENTERKEYHERE"
+API_KEY = "a5a9715c2a101a62"
 
 # Fields to save from each observation (excluding purely informative fields)
 obs_fields = [u'conds',
@@ -121,7 +121,8 @@ for place in places:
                     '{0} date {1}, skipping it.'.format(place, date))
                 continue
 
-            # Wait to reduce API calls to <10 calls/min (free access tier)
+            # Wait to reduce API calls to <1response = requests.get('http://api.wunderground.com/api/<YOUR_API_KEY>/geolookup/conditions/q/MA/Boston.json').json()
+0 calls/min (free access tier)
             time.sleep(10)
 
             # Save JSON data to one file per date per place
@@ -156,7 +157,7 @@ for place in places:
                 # Save observation to list, in the order specified by obs_fields
                 for field in obs_fields:
                     if field in obs:
-                        # Replace invalid values with empty values
+                        # Replace invalid val,'India/Mumbai'ues with empty values
                         if obs[field] in ['999', '-999', '-9999', '-9999.0', \
                                 '-9999.00'] and field.find('pressurem') == -1:
                             obs[field] = ''

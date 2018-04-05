@@ -1,0 +1,3 @@
+datetime_utc,j_conds,j_dewptm,j_fog,j_hail,j_heatindexm,j_hum,j_precipm,j_pressurem,j_rain,j_snow,j_tempm,j_thunder,j_tornado,j_vism,j_wdird,j_wdire,j_wgustm,j_windchillm,j_wspdm,target_o_tempm
+20180403-03:00,,13,0,0,,30,,1010,0,0,27,0,0,4,,,,,0.0,39
+20180403-12:00,,12,0,0,,13,,1003,0,0,38,0,0,10,0,North,,,,39
