@@ -36,6 +36,21 @@ def render_home():
 
 
 
+@app.route('/analytics/')
+def render_analytics():
+    
+    labels = ["January","February","March","April","May","June","July","August"]
+    
+    values = [10,9,8,7,6,4,7,8]
+
+    return render_template('analytics.html', values=values, labels=labels)
+
+@app.route('/analytics/radar')
+def render_radar():
+
+    return render_template('analytics_radar.html')
+    
+
 
 
 @app.route('/<city>')
