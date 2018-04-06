@@ -16,7 +16,7 @@ import datetime
 from pprint import pprint
 
 # Number of days to query API for, up to and including yesterday
-DAYS = 2
+DAYS = 1800
 
 # Places to query the API for
 places = ['India/Jalgaon']

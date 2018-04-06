@@ -4,7 +4,6 @@ import React from 'react';
 import {StyleSheet} from 'react-native';
 
 export const colors = {
-
   "secondary"           : '#0686E4',
   "tertiary"            : '#ffffff',
   "background_dark"     : '#F0F0F0',
@@ -14,7 +13,6 @@ export const colors = {
   "weather_text_color"  : '#464646',
   "transparent_white"   : '#FFFFFF00',
   "separator_background": '#E2E2E2',
-
 };
 
 // workaround since on iOS NotoSans works, but not NotoSans-Regular
@@ -211,15 +209,14 @@ export const settings_screen = StyleSheet.create(
       flex           : 1,
       padding        : 8,
       flexDirection  : 'column', // main axis
-      justifyContent : 'flex-end', // main axis
+      justifyContent : 'flex-start', // main axis
       alignItems     : 'center', // cross axis
       backgroundColor: colors.tertiary,
     },
-
     text       : {
       color     : colors.weather_text_color,
       fontFamily: values.font_body,
-      fontSize  : 15,
+      fontSize  : 20,
     },
     
     about_us_view : {
