@@ -238,3 +238,9 @@ for obs in testing_set:
 
 out.close()
 testout.close()
+
+print ""
+
+print " hello "
+
+print ""
