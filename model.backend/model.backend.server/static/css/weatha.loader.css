@@ -1,0 +1,63 @@
+
+#splashScreen {
+    width:100%;
+    height:100%;
+    position:fixed;
+    top:0;
+    left:0;
+    background-image:url(../img/background_new.jpg);
+    z-index:2000000000;
+    
+}
+#splashScreen #innerScreen {
+    width:100%;
+    height:100%;
+    background-color:rgba(2, 66, 89, 0.659);
+}
+#splashScreen #appText {
+    width:50%;
+    height:50%;
+    position:absolute;
+    top:30%;
+    left:25%;
+    justify-content:space-around;
+    text-align:center;
+}
+#splashScreen #appText h1 {
+    color:#fff;
+    font-size:55px;
+    font-family:sans-serif;
+}
+#splashScreen #appText h3 {
+    color:#fff;
+    font-size:15px;
+    font-weight:lighter;
+}
+#splashScreen div.footer {
+    position:fixed;
+    color:#ddd;
+    bottom:10px;
+    width:100%;
+    text-align:center;
+
+}
+#spashScreen div.footer p {
+    font-weight:lighter;
+    font-size:20px;
+}
+.loader {
+    margin:0 auto;
+    border: 3px solid #f3f3f3; 
+    border-top: 3px solid rgb(2, 152, 206);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 2s linear infinite;
+    align:center;
+    margin-top:20px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

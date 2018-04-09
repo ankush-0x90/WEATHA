@@ -2,92 +2,54 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>WEATHA_BACKEND</title>
-    <style>
-        *{padding:0;margin:0;box-sizing:border-box}
-        body,html{height:100%;max-height:100%}
-        
-        body {
-            background-color:rgb(214, 214, 214);
-            font-family:sans-serif;
-        }
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
 
-        div.header {
-            width:100%;
-            height:13%;
-            min-height:70px;
-            background-color:#162535;
-            color:#fff;
-            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(63, 63, 68, 0.1);
-            text-align:center;
-            padding-top:20px;
+    <title>WEATHA_BACKEND</title>
+
+    
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/index.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/weatha.loader.css') }}">
+    
+    <style>
+        body {
+           
         }
-        div.wrapper {
-            margin:0 auto;
-            width:80%;
-            min-width:800px;
-            
-        }
-        div.city-card {
-            width:70%;
-            min-width:600px;
-            background-color:#fff;
-            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(63, 63, 68, 0.1);
-            margin:20px auto; 
-            padding:30px;
-            text-align:center;
-        }
-        a {text-decoration:none; color:#162535}
-        
     </style>
+    <script src="https://use.fontawesome.com/releases/v5.0.9/js/all.js"></script>
+    <script src="{{ url_for('static',filename='js/jquery.min.js') }}"></script>
+
+
 </head>
 <body>
+
+    <div id="splashScreen">
+        <div id="innerScreen">
+            <div id="appText">
+                <h1><i class="fa fa-sun"></i> WEATHA</h1>
+                <h3>Weather Analysis And Forecasting For Khandesh Region</h3>
+                <div class="loader"></div>
+            </div>
+            <div class="footer">
+                <p>Designed And Developed By Team_DASH</p>
+            </div>
+        </div>
+    </div>
     
+
+
+
+
     <div class="header">
-        <h1>weatha_backend_service</h1>
+    
+        <h1><i class="fa fa-sun"></i> Weatha</h1>
+
     </div>
     
-    <div class="wrapper">
-        <a href="/jalgaon">
-            <div class="city-card">
-                <div class="card-content">
-                    <h2>Jalgaon</h2>
-                </div>
-            </div>
-        </a>
-       
-        <a href="/dhule">
-            <div class="city-card">
-                <div class="card-content">
-                    <h2>Dhule</h2>
-                </div>
-            </div>
-        </a>
-        <a href="/muktainagar">
-            <div class="city-card">
-                <div class="card-content">
-                    <h2>Muktainagar</h2>
-                </div>
-            </div>
-        </a>
-        <a href="/bhusaval">
-            <div class="city-card">
-                <div class="card-content">
-                    <h2>Bhusaval</h2>
-                </div>
-            </div>
-        </a>
-        <a href="/nandurbar">
-            <div class="city-card">
-                <div class="card-content">
-                    <h2>Nandurbar</h2>
-                </div>
-            </div>
-        </a>
-
-    </div>
-
+    <script src="{{ url_for('static',filename='js/weatha.loader.js') }}"></script>
 </body>
 </html>

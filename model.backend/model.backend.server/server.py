@@ -1,58 +1,52 @@
 #coded by asprazz https://github.com/asprazz/WEATHA/model.backend/model.backend.server
-
 # imports
 import requests
-
 from flask import Flask,render_template,jsonify
 import pprint 
 import datetime
-
-
 import boto3
-
 from boto3.session import Session
-#weather imports
 from weather import Weather, Unit
-
 #           ENDING IMPORT EXPORTS           #
 #           Global Functionalities          #
-
-
-
 app = Flask(__name__)
 weather = Weather(unit=Unit.CELSIUS)
-
-
 #global Variable 
-
 predictedTemp = 0
 conds = ""
-
-
 #routing on slash
+
+
+
+#route home routing
 @app.route('/')
 def render_home():
    return render_template("index.html")
 
 
 
+#routes for REST APIs
+@app.route('/api/<city>')
+def api_route(city):
+    
+    return jsonify(city)
+
+#root to analytics
 @app.route('/analytics/')
 def render_analytics():
-    
     labels = ["January","February","March","April","May","June","July","August"]
-    
     values = [10,9,8,7,6,4,7,8]
-
     return render_template('analytics.html', values=values, labels=labels)
 
+
+#analytics?radar
 @app.route('/analytics/radar')
 def render_radar():
-
     return render_template('analytics_radar.html')
-    
 
 
 
+#approute for graphical city
 @app.route('/<city>')
 def render_cityWeather(city):
     if(city!="favicon.ico"):
@@ -66,7 +60,7 @@ def render_cityWeather(city):
         print(j_hum)
         j_pressurem = location.atmosphere['pressure']
         j_vism = location.atmosphere['visibility']
-        j_dewptm = 15
+        j_dewptm = 11
         j_tempm = forecasts[0].high
         #print(j_tempm)
         j_wspdm=location.wind.speed
@@ -82,7 +76,7 @@ def render_cityWeather(city):
         record['j_fog']=str(0)
         record['j_hail']=str(0)
         record['j_heatindex']=""
-        record['j_hum']=j_hum
+        record['j_hum']=str(35)
         record['j_precipm']=""
         record['j_pressurem']=j_pressurem
         record['j_rain']=str(0)
@@ -107,7 +101,6 @@ def render_cityWeather(city):
         nextSeven = location.forecast
         conds = location.condition.text
 
-
         print(conds)
 
     return render_template("cityWeather.html",city=city,predictedTemp=predictedT,nextSeven=nextSeven,conds=conds)
@@ -118,10 +111,11 @@ def render_cityWeather(city):
 
 
 def predict_weather(record):
-    session = Session(aws_access_key_id='AKIAJEHGQY6CNTKS4D2A', aws_secret_access_key='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')
+    
+    session = Session(aws_access_key_id='', aws_secret_access_key='')
     machinelearning = session.client('machinelearning', region_name='eu-west-1')
-    model_id = 'ml-fpwR4OiwVlU'
-
+    model_id = ''
+    
     try:
         #dynamically retrieve model and prediction endpoint
         model = machinelearning.get_ml_model(MLModelId=model_id)
@@ -139,25 +133,10 @@ def predict_weather(record):
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     
 #testing route
 @app.route('/testing')
 def xxxxx():    
-    
     nextSeven = {
         "30" : "CLEAR",
         "35" : "CLOUDY",
@@ -169,7 +148,6 @@ def xxxxx():
     }
     return render_template("index.html",tempC="30",conds="CLEAR",nextSeven=nextSeven)
 
-
 # LETS HOPE FOR GOOD MAIN
 if __name__=='__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0',debug=True)
