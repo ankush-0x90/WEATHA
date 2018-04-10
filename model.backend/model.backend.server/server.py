@@ -56,7 +56,7 @@ def api_route(city):
 @app.route('/analytics/')
 def render_analytics():
     
-    cities = ['Jalgaon' , 'Dhule','Asoda']
+    cities = ['Jalgaon']
     DIR = "data/India"
     dates = []
     today = datetime.date.today()
@@ -67,29 +67,38 @@ def render_analytics():
             "%Y%m%d"))
     dates.append(datetime.date.strftime(today,"%Y%m%d"))
     for c in cities:
+        avg = 1
+        i=0
+        thirteen_fourteen = []
         for d in dates:
+            i+=1
+            if(i==365):
+                avg = float(avg/i)
+                thirteen_fourteen.append(avg)
+                break
             try:
                 path = DIR+'/'+c+'/'+d+'.json'
                # print(path)
                 with open(path) as json_data:
-                    d = json.load(json_data)
-                    tempT = int(d["history"]["observations"][0]["tempm"])
-
+                    try:
+                       print("")
+                       tempT=d["history"]["observations"][0]["tempm"]
+                       avg += tempT
+                    except:
+                        continue
             except:
                 continue    
-    
-    # print(path)
 
+    # print(path)
     ''' normal example with thesis    
     
     path = DIR+'/Asoda/'+'20171116'+'.json'
     with open(path) as json_data:
         d = json.load(json_data)
-        pprint.pprint(d["history"]["observations"][0]["tempm"])  
-   
+        t=d["history"]["observations"][0]["tempm"])  
     '''
-   
-    return render_template('analytics.html')
+    thirteen_fourteen=parseAverages(thirteen_fourteen)
+    return render_template('analytics.html',thirteen_fourteen=thirteen_fourteen)
 
 
 #analytics?radar
@@ -190,8 +199,8 @@ def predict_weather(record):
         print(e)
 
 
-
-    
+def parseAverages(x):
+    return [40,32,36,0]
 #testing route
 @app.route('/testing')
 def xxxxx():    

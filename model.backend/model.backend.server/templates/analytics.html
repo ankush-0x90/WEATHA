@@ -65,7 +65,7 @@
         </div>
 
 
-        <a href="/analytics">
+        <a href="/">
             <div class="analytics-button">
                 Weatha Prediction
             </div>
@@ -103,12 +103,14 @@
         new Chart(document.getElementById("bar-chart"), {
             type: 'bar',
             data: {
-                labels: ["Jalgaon", "Dhule", "Nandurbar", "Asoda"],
+                labels: [ "Jalgaon", "Dhule", "Asoda","Nandurbar" ],
                 datasets: [
                     {
                     label: "Average Temparature",
-                    backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
-                    data: [2478,5267,734,784,433]
+                    backgroundColor: ["#3e95cd","#8e5ea2","#3cba9f"],
+                    data: [ {% for item in thirteen_fourteen %}
+                            {{item}},
+                            {% endfor %}]
                     }
                 ]
             },

@@ -88,7 +88,6 @@ today = datetime.date.today()
 for d in range(DAYS, 0, -1):
         dates.append(datetime.date.strftime(today - datetime.timedelta(days=d), \
             "%Y%m%d"))
-
 dates.append(datetime.date.strftime(today,"%Y%m%d"))
 
 
