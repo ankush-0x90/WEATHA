@@ -7,6 +7,7 @@ body {
     background-size:cover;
     background-position:bottom-right;
     overflow-x:hidden;
+    background-attachment:fixed;
 }
 
 div.header {
@@ -20,16 +21,57 @@ div.header {
     color:#fff;
 }
 div.wrapper {
+    width:90%;
     margin:0 auto;
+    padding-top:20px;
+}
+div.wrapper div.city-weather-card {
     width:80%;
+    background-color:rgba(0,0,0,0.26);
+    padding:20px;
+    color:#fff;
+    margin:10px auto;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1), 0 0 0 2px rgba(0, 0, 0, 0.1);
+    border-radius:3px;
 }
-div.city-card {
-    width:70%;
-   
-    background-color:#fff;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(63, 63, 68, 0.1);
-    margin:20px auto; 
-    padding:30px;
+div.city-weather-card-header div.header-timeanddate {
+    padding:5px;
+}
+div.city-weather-card-header div.header-timeanddate .timeNow{
+    float:left;
+}
+div.city-weather-card-header div.header-timeanddate .dateNow {
+    float:right;
+}
+div.city-weather-card div.city-weather-card-content {
+    clear:both;
+    width:100%;
+    padding:5px;
+    padding-top:20px;
+    padding-bottom:30px;
+}
+div.city-weather-card div.city-weather-card-content span {
+    font-size:22px;
+    font-weight:bolder;
+    width:33%;
+    float:left;
+    padding:5px;
     text-align:center;
+    text-transform: capitalize;
 }
-a {text-decoration:none; color:#162535}
+div.city-weather-card div.city-weather-card-content span.content-weather-icon {
+    text-align:right;
+    padding-right:10px;
+}
+div.wrapper div.analytics-button {
+    width:60%;
+    text-align:center;
+    margin:20px auto;
+    padding:20px;
+    color:rgba(7, 78, 133, 0.8);
+    background-color:#fff;
+    font-size:20px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1), 0 0 0 2px rgba(0, 0, 0, 0.1);
+    border-radius:5px;
+}
+a{text-decoration:none;}

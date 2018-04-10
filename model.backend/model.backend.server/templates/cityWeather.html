@@ -1,103 +1,181 @@
 <!DOCTYPE html>
-<html lang="en"> 
+<html lang="en">
 <head>
     <meta charset="UTF-8">
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{{city}} weather analysis</title>
-    <style>
-        *{padding:0;margin:0;box-sizing:border-box}
-        body,html{height:100%;max-height:100%}
-        
-        body {
-            background-color:rgb(214, 214, 214);
-            font-family:sans-serif;
-            background-image:url("background.jpg");
-        }
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
 
-        div.header {
-            width:100%;
-            height:13%;
-            min-height:70px;
-            background-color:#162535;
-            color:#fff;
-            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(63, 63, 68, 0.1);
-            text-align:center;
-            padding-top:20px;
-        }
-        div.wrapper {
-            margin:0 auto;
-            width:80%;
-            min-width:800px;
+    <title>WEATHA_BACKEND</title>
 
-        }
-        div.card {
-            width:70%;
-            min-width:600px;
-            background-color:#fff;
-            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(63, 63, 68, 0.1);
-            margin:20px auto; 
-            padding:30px;
-            text-align:center;
-        }
-        a {text-decoration:none; color:#162535}
-        a#goBackButton {
-          position:absolute;
-          top:20px;
-          left:20px;
-          color:#fff;
-          font-size:20px;
-        }
-        table.predictionTable tr * {
-          padding:10px;
-        }
-        table.predictionTable tr:nth-child(odd) {
-          background-color:#f2f2f2;
-        }
-    </style>
+    
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/index.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/weatha.loader.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/weather-icons.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/city.chart.css') }}">
+
 </head>
 <body>
-    <a href="../" id="goBackButton">Go Back</a>
+
+    <div id="splashScreen">
+        <div id="innerScreen">
+            <div id="appText">
+                <h1><i class="fa fa-sun"></i> WEATHA</h1>
+                <h3>Weather Analysis And Forecasting For Khandesh Region</h3>
+                <div class="loader"></div>
+            </div>
+            <div class="footer">
+                <p>Designed And Developed By Team VAGS</p>
+            </div>content-city-name
+        </div>
+    </div>
 
     <div class="header">
-        <h1> {{city}} Weather Analysis</h1>
+        <h1><i class="wa wa-sun"></i> Weatha</h1>
+    </div>
+    <div class="wrapper" style="width:90%">
+        <div class="city-weather-card">
+            <div class="city-weather-card-header">
+                <div class="header-timeanddate">
+                    <span class="timeNow">11:00 AM</span>
+                    <span class="dateNow">Today</span>
+                </div>
+            </div>
+            <div class="city-weather-card-content">
+                <span class="content-city-name">
+                    {{city}} 
+                </span>
+                <span class="content-weather-icon">
+                    {% if(conds=="Sunny" or conds=="Mostly Sunny") %}
+                        <i class="wi wi-day-sunny"></i>
+                    {% elif(conds=="Clear") %}
+                        <i class="wi wi-day-sunny"></i>
+                    {% elif(conds=="Cloudy" or conds=="Mostly Cloudy") %}
+                        <i class="wi wi-day-sunny"></i>
+                    {% elif(conds=="Partly Cloudy") %}
+                        <i class="wi wi-day-sunny"></i>
+                    {% else %}
+                        <i class="wi wi-day-sunny"></i>
+                    {% endif %}
+                </span>
+                <span class="content-city-temprature">
+                    {{ predictedTemp}}<sup>o</sup> <b>C</b>
+                </span>
+            </div>
+        </div>
+
+        <div class="chart">
+          <canvas id="weather-forecasts" ></canvas>
+        </div>
+
+        <a href="/analytics">
+            <div class="analytics-button">
+                Weatha Analytics
+            </div>
+        </a>
     </div>
     
-    <div class="wrapper">
-      <div class="card">
-          <table class="predictionTable"> 
-              <tr>
-                <th>
-                  Predicted Temparature
-                </th>
-                <td>
-                  {{predictedTemp}}
-                </td>
-              </tr>
-              <tr>
+
+
+
+
+
+    <!--
+      <div class="wrapper">
+        <div class="card">
+
+            <table class="predictionTable"> 
+                <tr>
                   <th>
-                    Condition
+                    Predicted Temparature
                   </th>
                   <td>
-                    {{ conds }}
+                    {{predictedTemp}}
                   </td>
-              </tr>
-              <tr>
-                <th>Next Seven Days</th>
-                <td></td>
-              </tr>
-              {% for i in nextSeven %}
-                <tr>
-                  <td>{{i.date}}</td>
-                  <td>Condition ->{{i.text}} | minTemp -> {{i.low}} | maxTemp -> {{i.high}}</td>
                 </tr>
-              {% endfor %}
-            </table>
+                <tr>
+                    <th>
+                      Condition
+                    </th>
+                    <td>
+                      {{ conds }}
+                    </td>
+                </tr>
+                <tr>
+                  <th>Next Seven Days</th>
+                  <td></td>
+                </tr>
+                {% for i in nextSeven %}
+                  <tr>
+                    <td>{{i.date}}</td>
+                    <td>Condition ->{{i.text}} | minTemp -> {{i.low}} | maxTemp -> {{i.high}}</td>
+                  </tr>
+                {% endfor %}
+              </tabvar d = new Date(),
+                h = (d.getHours()<10?'0':'') + d.getHours(),
+                m = (d.getMinutes()<10?'0':'') + d.getMinutes();
+            le>
 
+        </div>
+        
       </div>
-      
-    </div>
+    -->
+    
 
+
+    <script src="{{ url_for('static',filename='js/weatha.loader.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <script>
+
+        new Chart(document.getElementById("weather-forecasts"), {
+        type: 'line',
+        data: {
+          labels: ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"],
+          datasets: [{ 
+              
+              data: [ {% for item in minTemp %}
+                      {{item}},
+                    {% endfor %} ],
+
+              label: "minTemp",
+              borderColor: "#f1c40f",
+              fill: false
+            }, { 
+
+              data: [ {% for item in maxTemp %}
+                      {{item}},
+                    {% endfor %} ],
+              label: "maxTemp",
+              borderColor: "#c0392b",
+              fill: false
+            }
+          ]
+        },
+        options: {
+          title: {
+            display: true,
+            text: 'Weather Forecast Weekly',
+          }
+        }
+      });
+    </script>
+    <script>
+        var t;
+
+        t = timeNow();
+        //alert(t);
+        var tN = document.getElementsByClassName("timeNow");
+        tN[0].innerHTML = t;
+        function timeNow() {
+            var d = new Date(),
+                h = (d.getHours()<10?'0':'') + d.getHours(),
+                m = (d.getMinutes()<10?'0':'') + d.getMinutes();
+            return( h+':'+ m );
+        }
+    </script>
 </body>
 </html>
       

@@ -1,3 +1,4 @@
 {
-    "python.pythonPath": "${workspaceFolder}/model.backend/bin/python"
+    "python.pythonPath": "${workspaceFolder}/model.backend/bin/python",
+    "git.ignoreLimitWarning": true
 }

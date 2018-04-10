@@ -3,6 +3,7 @@
 import requests
 from flask import Flask,render_template,jsonify
 import pprint 
+import json
 import datetime
 import boto3
 from boto3.session import Session
@@ -17,33 +18,84 @@ conds = ""
 #routing on slash
 
 
-
 #route home routing
 @app.route('/')
 def render_home():
-   return render_template("index.html")
+
+    jLocation = weather.lookup_by_location("Jalgaon")
+    dLocation = weather.lookup_by_location("dhule")
+    mLocation = weather.lookup_by_location("muktainagar")
+    bLocation = weather.lookup_by_location("bhusaval")
+    nLocation = weather.lookup_by_location("nadhurbar")
+    conds = []
+    conds.append(jLocation.condition.text)
+    conds.append(dLocation.condition.text)
+    conds.append(mLocation.condition.text)
+    conds.append(bLocation.condition.text)
+    conds.append(nLocation.condition.text)
+
+    temp = []
+    temp.append(jLocation.condition.temp)
+    temp.append(dLocation.condition.temp)
+    temp.append(mLocation.condition.temp)
+    temp.append(bLocation.condition.temp)
+    temp.append(nLocation.condition.temp)
+
+
+
+    return render_template("index.html",conds=conds,temp=temp)
 
 
 
 #routes for REST APIs
 @app.route('/api/<city>')
 def api_route(city):
-    
     return jsonify(city)
 
 #root to analytics
 @app.route('/analytics/')
 def render_analytics():
-    labels = ["January","February","March","April","May","June","July","August"]
-    values = [10,9,8,7,6,4,7,8]
-    return render_template('analytics.html', values=values, labels=labels)
+    
+    cities = ['Jalgaon' , 'Dhule','Asoda']
+    DIR = "data/India"
+    dates = []
+    today = datetime.date.today()
+    DAYS=1800
+
+    for d in range(DAYS, 0, -1):
+        dates.append(datetime.date.strftime(today - datetime.timedelta(days=d), \
+            "%Y%m%d"))
+    dates.append(datetime.date.strftime(today,"%Y%m%d"))
+    for c in cities:
+        for d in dates:
+            try:
+                path = DIR+'/'+c+'/'+d+'.json'
+               # print(path)
+                with open(path) as json_data:
+                    d = json.load(json_data)
+                    tempT = int(d["history"]["observations"][0]["tempm"])
+
+            except:
+                continue    
+    
+    # print(path)
+
+    ''' normal example with thesis    
+    
+    path = DIR+'/Asoda/'+'20171116'+'.json'
+    with open(path) as json_data:
+        d = json.load(json_data)
+        pprint.pprint(d["history"]["observations"][0]["tempm"])  
+   
+    '''
+   
+    return render_template('analytics.html')
 
 
 #analytics?radar
 @app.route('/analytics/radar')
 def render_radar():
     return render_template('analytics_radar.html')
-
 
 
 #approute for graphical city
@@ -93,25 +145,33 @@ def render_cityWeather(city):
 
 
         #print(record)
-        predictedTemp=float(predict_weather(record))
+        #not active
+        #predictedTemp=float(predict_weather(record))
+        predictedTemp=30
         print("Predicted temprature is ")
         print(predictedTemp)
-        predictedT =(predictedTemp)
+
+        predictedT = (predictedTemp)
         
         nextSeven = location.forecast
         conds = location.condition.text
-
         print(conds)
+        minTemp=[]
+        maxTemp=[]
+        dates = []
 
-    return render_template("cityWeather.html",city=city,predictedTemp=predictedT,nextSeven=nextSeven,conds=conds)
+        for i in nextSeven:
+            minTemp.append(int(i.low))
+            maxTemp.append(int(i.high))
+            dates.append(i.date)
+        print(dates)
 
-
+    return render_template("cityWeather.html",city=city,predictedTemp=predictedT,minTemp=minTemp,maxTemp=maxTemp,dates=dates,conds=conds)
 
 
 
 
 def predict_weather(record):
-    
     session = Session(aws_access_key_id='', aws_secret_access_key='')
     machinelearning = session.client('machinelearning', region_name='eu-west-1')
     model_id = ''
@@ -121,11 +181,9 @@ def predict_weather(record):
         model = machinelearning.get_ml_model(MLModelId=model_id)
         prediction_endpoint = model.get('EndpointInfo').get('EndpointUrl')
         #print(prediction_endpoint)
-
         response = machinelearning.predict(MLModelId=model_id, Record=record, PredictEndpoint=prediction_endpoint)
         #label = response.get('Prediction').get('predictedLabel')    
         predictedTemp = response.get('Prediction').get('predictedValue')
-        
         return predictedTemp
 
     except Exception as e:

@@ -1,0 +1,26 @@
+div.wrapper div.chart {
+    width:100%;
+    margin:0 auto;
+    background-color:#fff;
+    min-height:200px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1), 0 0 0 2px rgba(0, 0, 0, 0.1);
+    border-radius:3px;
+    margin-top:20px;
+    color:#fff;
+    padding:20px;
+}
+
+canvas#weather-forecasts {
+    width:100%;
+    min-height:200px;
+}
+canvas#bar-chart {
+    min-height:200px;
+    width:100%;
+}
+div.wrapper div.chart div.chart-header  {
+    width:100%;
+    font-size:20px;
+    color:#000;
+    text-align:center;
+}

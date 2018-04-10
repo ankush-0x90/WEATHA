@@ -1,0 +1,1 @@
+{"history": {"dailysummary": [], "utcdate": {"pretty": "", "hour": "", "year": "", "min": "", "mon": "", "mday": "", "tzname": ""}, "observations": [], "date": {"pretty": "", "hour": "", "year": "", "min": "", "mon": "", "mday": "", "tzname": ""}}, "response": {"version": "0.1", "features": {"history": 1}, "termsofService": "http://www.wunderground.com/weather/api/d/terms.html"}}

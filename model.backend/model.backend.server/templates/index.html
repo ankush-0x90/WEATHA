@@ -9,20 +9,12 @@
     
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
 
-    <title>WEATHA_BACKEND</title>
+    <title>Prediction</title>
 
     
     <link rel="stylesheet" href="{{ url_for('static',filename='css/index.css') }}">
     <link rel="stylesheet" href="{{ url_for('static',filename='css/weatha.loader.css') }}">
-    
-    <style>
-        body {
-           
-        }
-    </style>
-    <script src="https://use.fontawesome.com/releases/v5.0.9/js/all.js"></script>
-    <script src="{{ url_for('static',filename='js/jquery.min.js') }}"></script>
-
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/weather-icons.min.css') }}">
 
 </head>
 <body>
@@ -35,21 +27,165 @@
                 <div class="loader"></div>
             </div>
             <div class="footer">
-                <p>Designed And Developed By Team_DASH</p>
+                <p>Designed And Developed By Team VAGS</p>
             </div>
         </div>
     </div>
-    
-
-
-
 
     <div class="header">
-    
-        <h1><i class="fa fa-sun"></i> Weatha</h1>
+        <h1><i class="wa wa-sun"></i> Weatha</h1>
+    </div>
 
+    <div class="wrapper">
+        <a href="/jalgaon">
+        <div class="city-weather-card">
+            <div class="city-weather-card-header">
+                <div class="header-timeanddate">
+                    <span class="timeNow">11:00 AM</span>
+                    <span class="dateNow">Today</span>
+                </div>
+            </div>
+            <div class="city-weather-card-content">
+                <span class="content-city-name">
+                    Jalgaon 
+                </span>
+                <span class="content-weather-icon">
+                    {% if(conds[0]=="Sunny" or conds[0]=="Mostly Sunny") %}
+                        <i class="wi wi-day-sunny"></i>
+                    {% elif(conds[0]=="Clear") %}
+                        <i class="wi wi-day-sunny"></i>
+                    {% elif(conds[0]=="Cloudy" or conds[0]=="Mostly Cloudy") %}
+                        <i class="wi wi-day-sunny"></i>
+                    {% elif(conds[0]=="Partly Cloudy") %}
+                        <i class="wi wi-day-sunny"></i>
+                    {% else %}
+                        <i class="wi wi-day-sunny"></i>
+                    {% endif %}
+                </span>
+                <span class="content-city-temprature">
+                    {{ temp[0]}}<sup>o</sup> <b>C</b>
+                </span>
+            </div>
+        </div>
+        </a>
+        <a href="/dhule">
+        <div class="city-weather-card">
+            <div class="city-weather-card-header">
+                <div class="header-timeanddate">
+                    <span class="timeNow">11:00 AM</span>
+                    <span class="dateNow">Today</span>
+                </div>
+            </div>
+            <div class="city-weather-card-content">
+                <span class="content-city-name">
+                    Dhule 
+                </span>
+                <span class="content-weather-icon">
+                    {% if(conds[1]=="Sunny" or conds[1]=="Mostly Sunny") %}
+                        <i class="wi wi-day-sunny"></i>
+                    {% elif(conds[1]=="Clear") %}
+                        <i class="wi wi-day-sunny"></i>
+                    {% elif(conds[1]=="Cloudy" or conds[1]=="Mostly Cloudy") %}
+                        <i class="wi wi-day-sunny"></i>
+                    {% elif(conds[1]=="Partly Cloudy") %}
+                        <i class="wi wi-day-sunny"></i>
+                    {% else %}
+                        <i class="wi wi-day-sunny"></i>
+                    {% endif %}
+                </span>
+                <span class="content-city-temprature">
+                    {{ temp[1]}}<sup>o</sup> <b>C</b>
+                </span>
+            </div>
+        </div>
+        </a>
+        <a href="/muktainagar">
+        <div class="city-weather-card">
+            <div class="city-weather-card-header">
+                <div class="header-timeanddate">
+                    <span class="timeNow">11:00 AM</span>
+                    <span class="dateNow">Today</span>
+                </div>
+            </div>
+            <div class="city-weather-card-content">
+                <span class="content-city-name">
+                    M.Nagar 
+                </span>
+                <span class="content-weather-icon">
+                    {% if(conds[2]=="Sunny" or conds[2]=="Mostly Sunny") %}
+                        <i class="wi wi-day-sunny"></i>
+                    {% elif(conds[2]=="Clear") %}
+                        <i class="wi wi-day-sunny"></i>
+                    {% elif(conds[2]=="Cloudy" or conds[2]=="Mostly Cloudy") %}
+                        <i class="wi wi-day-sunny"></i>
+                    {% elif(conds[2]=="Partly Cloudy") %}
+                        <i class="wi wi-day-sunny"></i>
+                    {% else %}
+                        <i class="wi wi-day-sunny"></i>
+                    {% endif %}
+                </span>
+                <span class="content-city-temprature">
+                    {{ temp[2]}}<sup>o</sup> <b>C</b>
+                </span>
+            </div>
+        </div>
+        </a>
+        <a href="/bhusaval">
+        <div class="city-weather-card">
+            <div class="city-weather-card-header">
+                <div class="header-timeanddate">
+                    <span class="timeNow">11:00 AM</span>
+                    <span class="dateNow">Today</span>
+                </div>
+            </div>
+            <div class="city-weather-card-content">
+                <span class="content-city-name">
+                    Bhusaval
+                </span>
+                <span class="content-weather-icon">
+                    {% if(conds[3]=="Sunny" or conds[3]=="Mostly Sunny") %}
+                        <i class="wi wi-day-sunny"></i>
+                    {% elif(conds[3]=="Clear") %}
+                        <i class="wi wi-day-sunny"></i>
+                    {% elif(conds[3]=="Cloudy" or conds[3]=="Mostly Cloudy") %}
+                        <i class="wi wi-day-sunny"></i>
+                    {% elif(conds[3]=="Partly Cloudy") %}
+                        <i class="wi wi-day-sunny"></i>
+                    {% else %}
+                        <i class="wi wi-day-sunny"></i>
+                    {% endif %}
+                </span>
+                <span class="content-city-temprature">
+                    {{ temp[3]}}<sup>o</sup> <b>C</b>
+                </span>
+            </div>
+        </div>
+        </a>
+        <a href="/analytics">
+            <div class="analytics-button">
+                Weatha Analytics
+            </div>
+        </a>
     </div>
     
+    
     <script src="{{ url_for('static',filename='js/weatha.loader.js') }}"></script>
+    <script>
+        var t;
+        t = timeNow();
+        //alert(t);
+        var tN = document.getElementsByClassName("timeNow");
+        tN[0].innerHTML = t;
+        tN[1].innerHTML = t;
+        tN[2].innerHTML = t;
+        tN[3].innerHTML = t;
+        tN[4].innerHTML = t;
+        function timeNow() {
+            var d = new Date(),
+                h = (d.getHours()<10?'0':'') + d.getHours(),
+                m = (d.getMinutes()<10?'0':'') + d.getMinutes();
+            return( h+':'+ m );
+        }
+    </script>
 </body>
 </html>

@@ -1,75 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>   
-        <meta charset="utf-8" />   
-        <title>Chart.js </title>      
-        <!-- import plugin script -->  
-         <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.js'></script>   
-    </head>
-    <body>
-        
-        
-        
-        <h1>Analytics</h1><!-- bar chart canvas element -->
-        
-       
-        <canvas id="chart" width="600" height="400"></canvas>
-        <canvas id="chart2" width="600" height="400"></canvas>
+<head>
+    <meta charset="UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+
+    <title>Analytics</title>
+
+    
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/index.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/weatha.loader.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/weather-icons.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/city.chart.css') }}">
+
+</head>
+<body>
+
+    <div id="splashScreen">
+        <div id="innerScreen">
+            <div id="appText">
+                <h1><i class="fa fa-sun"></i> WEATHA</h1>
+                <h3>Weather Analysis And Forecasting For Khandesh Region</h3>
+                <div class="loader"></div>
+            </div>
+            <div class="footer">
+                <p>Designed And Developed By Team VAGS</p>
+            </div>
+        </div>
+    </div>
 
 
 
+    <div class="header">
+        <h1><i class="wa wa-sun"></i> Weatha Analytics</h1>
+    </div>
+    <div class="wrapper" style="width:90%">
+        <div class="chart">
+            <div class="chart-header">
+                Average Temparature (2013-2014)
+            </div>
+            <canvas id="bar-chart"></canvas>
+        </div>
+        <div class="chart">
+            <div class="chart-header">
+                Average Temparature (2014-2015)
+            </div>
+            <canvas id="bar-chart1"></canvas>
+        </div>
+        <div class="chart">
+            <div class="chart-header">
+                Average Temparature (2015-2016)
+            </div>
+            <canvas id="bar-chart2"></canvas>
+        </div>
+        <div class="chart">
+            <div class="chart-header">
+                Average Temparature (2016-2017)
+            </div>
+            <canvas id="bar-chart3"></canvas>
+        </div>
+
+
+        <a href="/analytics">
+            <div class="analytics-button">
+                Weatha Prediction
+            </div>
+        </a>
+
+    </div>
+
+
+    <script src="{{ url_for('static',filename='js/weatha.loader.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <script>
+
+    </script>
+
+
+    <script>
+
+        var t;
+
+        t = timeNow();
+        //alert(t);
+        var tN = document.getElementsByClassName("timeNow");
+        tN[0].innerHTML = t;
+        function timeNow() {
+            var d = new Date(),
+                h = (d.getHours()<10?'0':'') + d.getHours(),
+                m = (d.getMinutes()<10?'0':'') + d.getMinutes();
+            return( h+':'+ m );
+        }
+
+    </script>
+
+    <script>
+
+        new Chart(document.getElementById("bar-chart"), {
+            type: 'bar',
+            data: {
+                labels: ["Jalgaon", "Dhule", "Nandurbar", "Asoda"],
+                datasets: [
+                    {
+                    label: "Average Temparature",
+                    backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+                    data: [2478,5267,734,784,433]
+                    }
+                ]
+            },
+            options: {
+                legend: { display: false },
+                title: {
+                    display: true,
+                    text: ''
+                }
+            }
+        });
+
+    </script>
 
 
 
-
-        <script>
-           // bar chart data
-           var barData = {
-        
-            labels : [{% for item in labels %}
-                          "{{item}}",
-                      {% endfor %}],
-           
-            datasets : [
-              {
-
-                    fillColor: "rgba(151,187,205,0.2)",
-                    strokeColor: "rgba(151,187,205,1)",
-                    pointColor: "rgba(151,187,205,1)",
-
-                 data : [{% for item in values %}
-                              {{item}},
-                            {% endfor %}]
-              }
-              ]
-           }
-         
-           // get bar chart canvas
-           var mychart = document.getElementById("chart").getContext("2d");
-           var secondChart = document.getElementById("chart2").getContext("2d");
-
-           steps = 10
-           max = 10
-           // draw bar chart
-           new Chart(mychart).Bar(barData, {
-                scaleOverride: true,
-                scaleSteps: steps,
-                scaleStepWidth: Math.ceil(max / steps),
-                scaleStartValue: 0,
-                scaleShowVerticalLines: true,
-                scaleShowGridLines : true,
-                barShowStroke : true,
-                scaleShowLabels: true
-           });
-         
-           var myRadarChart = new Chart(ctx, {
-                type: 'radar',
-                data:[{% for item in values %}
-                              {{item}},
-                            {% endfor %}],
-                options: options
-            });
-        </script>
-
-        </body>
-    </html>
+</body>
+</html>
+      
+    
