@@ -1,58 +1,48 @@
 /**
  * Sample React Native App
- * https://github.com/facebook/react-native
+  https://github.com/asprazz
  * @flow
  */
-
 import React, { Component } from 'react';
 import {
+  
   Platform,
   StyleSheet,
   Text,
-  View
+  View,
+  Image,
+  ImageBackground,
+  WebView
 } from 'react-native';
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' +
-    'Cmd+D or shake for dev menu',
-  android: 'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
-
-type Props = {};
-export default class App extends Component<Props> {
+export default class App extends Component<> {
   render() {
+    
+    const resizeMode = 'center';
+    const text = 'This is some text inlaid in an <Image />';
+
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit App.js
-        </Text>
-        <Text style={styles.instructions}>
-          {instructions}
-        </Text>
-      </View>
+      /*from sujit's web*/
+      <WebView
+             source={{uri: 'http://192.168.42.201:5000'}}
+             style={{marginTop: 0}}
+      />
+
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
+  wrapper: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: '#fff',
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+  welcomeText: {
+    color:'#c0392b',
+    fontSize:35,
+    fontWeight:'bold'
+  }
 });
+

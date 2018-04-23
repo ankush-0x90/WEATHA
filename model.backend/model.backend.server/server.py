@@ -16,6 +16,9 @@ weather = Weather(unit=Unit.CELSIUS)
 predictedTemp = 0
 conds = ""
 #routing on slash
+@app.route('/sarya')
+def sarang():
+    return "Chutya"     
 
 
 #route home routing
@@ -42,7 +45,7 @@ def render_home():
     temp.append(nLocation.condition.temp)
 
 
-
+    temp = ['30','100','120','20']
     return render_template("index.html",conds=conds,temp=temp)
 
 
@@ -155,8 +158,10 @@ def render_cityWeather(city):
 
         #print(record)
         #not active
+
         #predictedTemp=float(predict_weather(record))
-        predictedTemp=30
+        
+        predictedTemp=59
         print("Predicted temprature is ")
         print(predictedTemp)
 

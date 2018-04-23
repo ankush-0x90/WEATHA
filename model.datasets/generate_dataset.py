@@ -16,10 +16,10 @@ import datetime
 from pprint import pprint
 
 # Number of days to query API for, up to and including yesterday
-DAYS = 1800
+DAYS = 1
 
 # Places to query the API for
-places = ['India/Jalgaon']
+places = ['India/Jalgaon','India/Dhule']
 
 # Output directories and filenames
 OUTDIR = 'data'
@@ -35,7 +35,7 @@ API_PRODUCT = 'history'
 logger = logging.getLogger('generate_dataset')
 logger.setLevel(level=logging.DEBUG)
 fh = logging.FileHandler(LOGFILE)
-fh.setLevel(logging.DEBUG)
+fh.setLev el(logging.DEBUG)
 ch = logging.StreamHandler()
 ch.setLevel(logging.INFO)
 logger.addHandler(fh)
@@ -77,6 +77,7 @@ for place in places:
         if e.errno == errno.EEXIST and os.path.isdir(path):
             pass
         else:
+                
             logger.error('Unable to create output path: ' + \
                 '{0}, aborting!'.format(path))
             sys.exit(1)
